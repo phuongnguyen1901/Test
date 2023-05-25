@@ -30,29 +30,29 @@ public class SearchJobPage {
         this.driver=driver;
     }
 
-    public void SearchJob(SearchJobKeyWords searchJobKeyWords) {
-        PageFactory.initElements(this.driver,this);
-        System.out.println(searchJobKeyWords.CongViec);
-
-        TextBoxJob.sendKeys(searchJobKeyWords.CongViec);
-        TextArea.sendKeys(searchJobKeyWords.KhuVuc);
-
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement selectedLocation = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(this.xpathSuggestionLocation.replace("{0}", searchJobKeyWords.KhuVuc))
-        ));
-
-        selectedLocation.click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ButtonSearch.click();
-
-
-    }
+//    public void SearchJob(SearchJobKeyWords searchJobKeyWords) {
+//        PageFactory.initElements(this.driver,this);
+//        System.out.println(searchJobKeyWords.CongViec);
+//
+//        TextBoxJob.sendKeys(searchJobKeyWords.CongViec);
+//        TextArea.sendKeys(searchJobKeyWords.KhuVuc);
+//
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement selectedLocation = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                By.xpath(this.xpathSuggestionLocation.replace("{0}", searchJobKeyWords.KhuVuc))
+//        ));
+//
+//        selectedLocation.click();
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        ButtonSearch.click();
+//
+//
+//    }
 
 
 }

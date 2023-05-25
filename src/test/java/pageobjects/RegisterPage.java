@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.ParseException;
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class RegisterPage {
     @FindBy(css="input#full_name")
@@ -39,12 +40,12 @@ public class RegisterPage {
     {
         this.driver =driver;
     }
-    public void open()
-    {
-        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/dang-ky");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        PageFactory.initElements(driver, this);
-    }
+//    public void open()
+//    {
+//        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/dang-ky");
+//        this.driver.manage().timeouts().implicitlyWait();
+//        PageFactory.initElements(driver, this);
+//    }
 
     public void enterEmail(String email)
     {
@@ -77,25 +78,25 @@ public class RegisterPage {
         this.RegisterButton.click();
     }
 
-    public String getEmailTakenMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(emailTakenMessage));
-        return lbMsg.getText();
-    }
+//    public String getEmailTakenMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(emailTakenMessage));
+//        return lbMsg.getText();
+//    }
 
-    public String emailinvalidMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(emailTakenMessage));
-        return lbMsg.getText();
-    }
-    public String getPasswordConfirmMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(invalidConfirmPassword));
-        return lbMsg.getText();
-    }
+//    public String emailinvalidMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(emailTakenMessage));
+//        return lbMsg.getText();
+//    }
+//    public String getPasswordConfirmMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(invalidConfirmPassword));
+//        return lbMsg.getText();
+//    }
 
     public String checkEmailTakenMessageShow() throws ParseException
     {
@@ -116,10 +117,10 @@ public class RegisterPage {
     {
         return this.ConfirmPassword.getAttribute("type");
     }
-    public String errorMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
-        return lbError.getText();
-    }
+//    public String errorMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
+//        return lbError.getText();
+//    }
 }

@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-reports/cucummber.html", "json:target/cucumber-reports/cucumber.json"},
-        features = "src/test/resources/Careelink/ForgotpasswordPage.feature",
+        features = "src/test/resources/Careelink/CoverLetter",
         glue = "stepDefinitions",
         monochrome = true
 )
-public class RunCucumberTest {
+public class  CucumberRunnerTests {
+
 }

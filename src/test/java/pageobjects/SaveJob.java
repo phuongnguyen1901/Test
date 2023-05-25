@@ -15,10 +15,10 @@ public class SaveJob {
         this.driver = driver;
         this.driver.manage().window().maximize();
     }
-    public  void  OpenSaveJob(){
-        this.driver.get("https://www.careerlink.vn/vieclam/list");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        PageFactory.initElements(this.driver,this);
-    }
+//    public  void  OpenSaveJob(){
+//        this.driver.get("https://www.careerlink.vn/vieclam/list");
+//        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        PageFactory.initElements(this.driver,this);
+//    }
     public  void btnLuu(){this.btnLuu.click();}
 }

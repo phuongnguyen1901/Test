@@ -33,13 +33,13 @@ public class LoginPage {
         this.driver.manage().window().maximize();
     }
 
-    public void Open()
-    {
-        // mở trang lên
-        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/login");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        PageFactory.initElements(this.driver, this);
-    }
+//    public void Open()
+//    {
+//        // mở trang lên
+//        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/login");
+//        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//        PageFactory.initElements(this.driver, this);
+//    }
 
     public void enterEmail(String email)
     {
@@ -73,10 +73,10 @@ public class LoginPage {
         return this.Password.getAttribute("type");
     }
 
-    public String errorMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
-        return lbError.getText();
-    }
+//    public String errorMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
+//        return lbError.getText();
+//    }
 }

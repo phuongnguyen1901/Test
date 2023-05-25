@@ -16,6 +16,7 @@ Feature: Login
     Examples:
     |username|password|
     |phuong@gmail.com|7654232|
+    |phuong@gmail.com|7654232|
 
   Scenario: Show dashboard for valid credential
     Given The login page is showed

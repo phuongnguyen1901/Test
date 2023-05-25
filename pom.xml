@@ -16,6 +16,7 @@
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.surefire.plugin.version>3.0.0-M4</maven.surefire.plugin.version>
   </properties>
 
   <dependencies>
@@ -32,12 +33,6 @@
     <version>${cucumber.version}</version>
     <scope>test</scope>
    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>4.1.0</version>
-    </dependency>
-
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
@@ -76,6 +71,11 @@
           <scope>compile</scope>
       </dependency>
       <dependency>
+          <groupId>io.cucumber</groupId>
+          <artifactId>cucumber-picocontainer</artifactId>
+          <version>4.2.6</version>
+      </dependency>
+      <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter</artifactId>
           <version>RELEASE</version>
@@ -87,7 +87,59 @@
           <version>4.13.2</version>
           <scope>compile</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>3.17</version>
+      </dependency>
 
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.17</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+      <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-server</artifactId>
+          <version>4.0.0-alpha-2</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+      <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-java</artifactId>
+          <version>3.141.59</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder -->
+      <dependency>
+          <groupId>com.github.stephenc.monte</groupId>
+          <artifactId>monte-screen-recorder</artifactId>
+          <version>0.7.7.0</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.automation-remarks/video-recorder -->
+      <dependency>
+          <groupId>com.automation-remarks</groupId>
+          <artifactId>video-recorder</artifactId>
+          <version>1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>ws.schild</groupId>
+          <artifactId>jave-core</artifactId>
+          <version>2.4.5</version>
+      </dependency>
+      <dependency>
+          <groupId>ws.schild</groupId>
+          <artifactId>jave-native-win64</artifactId>
+          <version>2.4.5</version>
+      </dependency>
+      <!-- avi to MP4 end -->
+      <!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+      <dependency>
+          <groupId>com.relevantcodes</groupId>
+          <artifactId>extentreports</artifactId>
+          <version>2.41.2</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -104,11 +156,38 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.22.2</version>
+            <version>${maven.surefire.plugin.version}</version>
             <configuration>
+                <threadCount>3</threadCount>
+                <perCoreThreadCount>false</perCoreThreadCount>
+                <parallel>methods</parallel>
+                <includes>
+                    <include>**/MutilTestRun.java</include>
+                </includes>
                 <testFailureIgnore>true</testFailureIgnore>
             </configuration>
         </plugin>
+
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-failsafe-plugin</artifactId>-->
+        <!--            <version>2.22.0</version>-->
+        <!--            <executions>-->
+        <!--                <execution>-->
+        <!--                    <goals>-->
+        <!--                        <goal>integration-test</goal>-->
+        <!--                        <goal>verify</goal>-->
+        <!--                    </goals>-->
+        <!--                    <configuration>-->
+        <!--                        <includes>-->
+        <!--                            <include>**/MutilTestRun.java</include>-->
+        <!--                        </includes>-->
+        <!--                        <parallel>methods</parallel>-->
+        <!--                        <useUnlimitedThreads>true</useUnlimitedThreads>-->
+        <!--                    </configuration>-->
+        <!--                </execution>-->
+        <!--            </executions>-->
+        <!--        </plugin>-->
         <plugin>
             <groupId>net.masterthought</groupId>
             <artifactId>maven-cucumber-reporting</artifactId>
