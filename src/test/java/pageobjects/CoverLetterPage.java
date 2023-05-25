@@ -22,7 +22,7 @@ public class CoverLetterPage {
     public  void OpenCoverLetterPage()
     {
         this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/thu-xin-viec/moi");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         PageFactory.initElements(this.driver,this);
 
     }

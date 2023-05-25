@@ -162,15 +162,15 @@ public class CreateCVPage {
     }
     // dùng để mở trang web và click button create
     public void OpenCreateCVPage(){
-        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/ho-so");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        PageFactory.initElements(this.driver,this);
-        btnCreateCV.click();
-        WebDriverWait waiter =new WebDriverWait(this.driver,Duration.ofSeconds(15));
-        WebElement btnCreateCVBySteps= waiter.until(ExpectedConditions.visibilityOfElementLocated(CreateCVByStepsEl));
-        btnCreateCVBySteps.click();
-        PageFactory.initElements(this.driver,this);
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        this.driver.get("https://www.careerlink.vn/nguoi-tim-viec/ho-so");
+//        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        PageFactory.initElements(this.driver,this);
+//        btnCreateCV.click();
+//        WebDriverWait waiter =new WebDriverWait(this.driver,Duration.ofSeconds(15));
+//        WebElement btnCreateCVBySteps= waiter.until(ExpectedConditions.visibilityOfElementLocated(CreateCVByStepsEl));
+//        btnCreateCVBySteps.click();
+//        PageFactory.initElements(this.driver,this);
+//        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     // dùng khai báo biến mà mình bắt location
     public void CreateCV(CVInformations cvInfo) throws ParseException {

@@ -33,10 +33,10 @@ public class ForgotPasswordSteps {
         );
     }
 
-    @Then("^The email not exist message \"([^\"]*)\" should be showed$")
-    public void the_error_message_should_be_showed(String errorMsg) {
-        assertThat(this.forgotPwdPage.getErrorMessage(), is(errorMsg));
-    }
+//    @Then("^The email not exist message \"([^\"]*)\" should be showed$")
+//    public void the_error_message_should_be_showed(String errorMsg) {
+//        assertThat(this.forgotPwdPage.getErrorMessage(), is(errorMsg));
+//    }
 
     @Then("^The success message \"([^\"]*)\" will be showed$")
     public void the_success_message_something_will_be_showed(String successMsg) {

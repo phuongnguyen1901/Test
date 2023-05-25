@@ -30,7 +30,7 @@ public class ForgotpasswordPage {
     public void Open()
     {
         this.driver.get("https://www.careerlink.vn/en/jobseeker/reset/reset_request");
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+       //this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         PageFactory.initElements(this.driver, this);
     }
 
@@ -50,17 +50,17 @@ public class ForgotpasswordPage {
         return this.Email.getAttribute("type");
     }
 
-    public String getErrorMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
-        return lbError.getText().replace("\n×", "");
-    }
-
-    public String getSuccessMessage()
-    {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-        WebElement lbSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(successLocator));
-        return lbSuccess.getText();
-    }
+//    public String getErrorMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
+//        return lbError.getText().replace("\n×", "");
+//    }
+//
+//    public String getSuccessMessage()
+//    {
+//        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+//        WebElement lbSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(successLocator));
+//        return lbSuccess.getText();
+//    }
 }

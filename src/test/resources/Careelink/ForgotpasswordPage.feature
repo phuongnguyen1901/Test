@@ -11,7 +11,7 @@ Feature: Forgot Password
     Examples:
       |email|
       |phuonglethi1901@gmail.co|
-    |phuong@gmail.com|
+      |phuong@gmail.com|
 
   Scenario Outline: Show success message for valid email
     Given The forgot password page is showed
@@ -21,4 +21,3 @@ Feature: Forgot Password
       |email|
       |  phuonglethi1901@gmail.com  |
       |khanh@live.com|
-
