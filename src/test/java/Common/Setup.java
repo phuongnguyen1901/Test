@@ -126,6 +126,7 @@ public class Setup {
     public void after(boolean isContinue){
         ExcelFile.setPass(colPass,row ,colFail);
         if (isContinue){
+            Events.captureScreenSelenium(driver);
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
             driver.quit();
         }else {

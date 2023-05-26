@@ -33,6 +33,18 @@ public class LoginAction {
         }
         return result;
     }
+    public boolean insertUsernameAndPasswordNoClick(WebDriver driver, String username,String password){
+        boolean result = false;
+        try{
+            Events.inputTextField(driver,By.xpath("//input[@name='_username']"),username);
+            Events.inputTextField(driver,By.xpath("//input[@name='_password']"),password);
+            result = true;
+        }catch (Exception e){
+            Constans.errorLog.concat(e.getMessage());
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 
     public boolean checkLoginSuccess(WebDriver driver){
         boolean result = false;
@@ -61,5 +73,80 @@ public class LoginAction {
             Constans.errorLog.concat(e.getMessage());
         }
         return  result;
+    }
+
+    public boolean validateScreenLogin_2(WebDriver driver){
+        boolean result = false;
+        try {
+            boolean checkInputEmail = driver.findElements(By.xpath("//input[@name='_username']")).size()>0;
+            boolean checkInputPass = driver.findElements(By.xpath("//input[@name='_password']")).size()>0;
+            boolean checkInputHienThi = driver.findElements(By.xpath("//button[@type='submit']")).size()>0;
+            boolean checkQuenMK = driver.findElements(By.xpath("//a[@class='float-right text-small']")).size()>0;
+            boolean checkDangKy= driver.findElements(By.xpath("//a[@class='text-small']")).size()>0;
+            if(checkInputEmail&&checkInputPass&& checkInputHienThi&&checkQuenMK&&checkDangKy){
+                return true;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Constans.errorLog.concat(e.getMessage());
+        }
+        return  result;
+    }
+
+    public boolean checkLoginFail(WebDriver driver, String message){
+        boolean result = false;
+        try {
+            String messageInPage = driver.findElement(By.xpath("//div[@class='alert alert-danger p-2']")).getText();
+            if(messageInPage.contains(message)){
+                return true;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Constans.errorLog.concat(e.getMessage());
+        }
+        return result;
+    }
+    public boolean clickButtonQuenMK(WebDriver driver){
+        boolean resutl = false;
+        try {
+            if (Events.clickButton(driver,By.xpath("//a[@class='float-right text-small']"))){
+                Thread.sleep(3000);
+                boolean checkInputEmail = driver.findElements(By.xpath("//h1[@class='h2 mb-4']")).size()>0;
+                if (checkInputEmail){
+                    return true;
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Constans.errorLog.concat(e.getMessage());
+        }
+        return resutl;
+    }
+    public boolean checkQuenMKPage(WebDriver driver){
+        boolean resutl = false;
+        try {
+            boolean checkInputEmail = driver.findElements(By.xpath("//h1[@class='h2 mb-4']")).size()>0;
+            if (checkInputEmail){
+                return true;
+            }
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Constans.errorLog.concat(e.getMessage());
+        }
+        return resutl;
+    }
+
+    public boolean clickButtonDangKy(WebDriver driver){
+        boolean resutl = false;
+        try {
+            if (Events.clickButton(driver,By.xpath("//a[@class='text-small']"))){
+               return true;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            Constans.errorLog.concat(e.getMessage());
+        }
+        return resutl;
     }
 }
