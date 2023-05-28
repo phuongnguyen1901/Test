@@ -193,11 +193,11 @@ public class Setup {
                 String pathVideoAvi = RandomName.pathVideoAvi(videoName);
                 ScreenshotAndVideo.stopRecord();
                 // convert video to mp4
-                convert.AviToMp4(pathVideoAvi, pathVideoMp4);
-                // xóa video đuôi AVI
-                if (fileUtils.deleteIfExists(Constans.folderReprotLocation + pathVideoAvi)) {
-                    System.out.println("Delete file success");
-                }
+//                convert.AviToMp4(pathVideoAvi, pathVideoMp4);
+//                // xóa video đuôi AVI
+//                if (fileUtils.deleteIfExists(Constans.folderReprotLocation + pathVideoAvi)) {
+//                    System.out.println("Delete file success");
+//                }
                 extent.endTest(testLogs);
                 extent.flush();
                 // kiểm tra xem có lỗi không để ghi log
