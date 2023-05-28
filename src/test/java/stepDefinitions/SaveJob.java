@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import Common.Events;
 import Common.Setup;
 import FilesUtils.ExcelFile;
 import FilesUtils.MapData;
@@ -141,6 +142,7 @@ public class SaveJob {
         try{
             assertTrue(saveJobAction.checkJobWhenSave(driver,SaveJobAction.jobTitle));
             Setup.testLogs.log(LogStatus.PASS,"Hiển thị công việc đã lưu thành công","");
+            Events.captureScreenSelenium(driver);
             Thread.sleep(3000);
             saveJobAction.removeSaveJob(driver);
             Setup.pass++;
