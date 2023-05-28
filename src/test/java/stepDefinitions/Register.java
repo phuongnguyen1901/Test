@@ -65,7 +65,7 @@ public class Register {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị màn hình đăng kí thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị các thông tin")
@@ -77,7 +77,7 @@ public class Register {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị các thông tin thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -91,7 +91,7 @@ public class Register {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị các thông tin thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click button đăng ký")
@@ -102,7 +102,7 @@ public class Register {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button đăng ký thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị thông báo lỗi : Email này đã được đăng kí. Vui lòng nhập email khác")
@@ -114,7 +114,7 @@ public class Register {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị thông báo lỗi : Email này đã được đăng kí. Vui lòng nhập email khác thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -128,7 +128,7 @@ public class Register {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Nhập mật khẩu hợp lệ và nhập xác nhận mật khẩu không khớp với mật khẩu thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Mật khẩu không khớp. Hãy nhập lại")
@@ -140,7 +140,7 @@ public class Register {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Mật khẩu không khớp. Hãy nhập lại thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -154,7 +154,7 @@ public class Register {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Nhập mật khâu và xác nhận mật khẩu hợp lệ thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Click Hiển thị mật khẩu và Hiển thị mật khẩu đã nhập")
@@ -166,7 +166,7 @@ public class Register {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button Hiển thị mật khẩu và Hiển thị mật khẩu đã nhậpi thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         }
     }
 

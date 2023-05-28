@@ -83,7 +83,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Login fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("In the screen to create a cover letter")
@@ -96,7 +96,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Navigate to cover letter fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     //testcase Cover_letter_6
@@ -110,7 +110,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (Exception e){
             Setup.testLogs.log(LogStatus.FAIL,"Enter title and description  < 10 characters fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button create")
@@ -121,7 +121,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (Exception e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Show error message")
@@ -136,7 +136,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check message fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -153,7 +153,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (Exception e){
             Setup.testLogs.log(LogStatus.FAIL,"Enter title and description  > 10 characters fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button create a cover letter")
@@ -164,7 +164,7 @@ public class CheckDescription {
             Setup.pass++;
         }catch (Exception e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Create mail successfully")
@@ -179,7 +179,7 @@ public class CheckDescription {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check message fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

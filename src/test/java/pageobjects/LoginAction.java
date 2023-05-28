@@ -97,7 +97,7 @@ public class LoginAction {
         boolean result = false;
         try {
             String messageInPage = driver.findElement(By.xpath("//div[@class='alert alert-danger p-2']")).getText();
-            if(messageInPage.contains(message)){
+            if(message.contains(messageInPage)){
                 return true;
             }
         }catch (Exception e){

@@ -76,7 +76,7 @@ public class CheckDisplayScreen {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Login fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("At the job application screen and at the cover letter folder")
@@ -87,7 +87,7 @@ public class CheckDisplayScreen {
             Setup.pass++;
         }catch (Exception e){
             Setup.testLogs.log(LogStatus.FAIL,"Navigate the job application screen and at the cover letter folder fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button Create new mail")
@@ -98,7 +98,7 @@ public class CheckDisplayScreen {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click the button Create new mail fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Show screen create new mail")
@@ -109,7 +109,7 @@ public class CheckDisplayScreen {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check Show Title And Description fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         }
     }
 

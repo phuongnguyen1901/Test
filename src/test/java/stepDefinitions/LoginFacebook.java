@@ -53,7 +53,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Input email and password success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Input username and password fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click button đăng nhập")
@@ -63,7 +63,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Click button success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
 
     }
@@ -82,7 +82,7 @@ public class LoginFacebook {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check message fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     // hết step 1
@@ -95,7 +95,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Input email and password is null success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Input username and password fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click button login")
@@ -105,7 +105,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Click button success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
 
     }
@@ -124,7 +124,7 @@ public class LoginFacebook {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check message fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     // hết step 2
@@ -137,7 +137,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Input email is null and password success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Input email is null and password success",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("button đăng nhập")
@@ -147,7 +147,7 @@ public class LoginFacebook {
             Setup.testLogs.log(LogStatus.PASS,"Click button success","");
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
 
     }
@@ -166,7 +166,7 @@ public class LoginFacebook {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check message fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         }
     }
     // hết step 3

@@ -55,7 +55,7 @@ public class Login {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Kiểm tra các thông tin màn đăng nhập thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Given("Nhập thông tin email hợp lệ và nhập password hợp lệ và  Click button Đăng nhập")
@@ -71,7 +71,7 @@ public class Login {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"login page fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Đăng nhập thành công, hiển thị màn hình home")
@@ -83,7 +83,7 @@ public class Login {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check login page fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         }
     }
 }

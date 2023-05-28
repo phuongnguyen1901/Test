@@ -66,7 +66,7 @@ public class CreateCV {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Navigate to job application fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Button Tạo hồ sơ -> Tạo hồ sơ theo từng bước")
@@ -77,7 +77,7 @@ public class CreateCV {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Button Tạo hồ sơ -> Tạo hồ sơ theo từng bước thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị màn hình hồ sơ xin việc")
@@ -89,7 +89,7 @@ public class CreateCV {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị màn hình hồ sơ xin việc thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -149,7 +149,7 @@ public class CreateCV {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị màn hình hồ sơ xin việc thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Tạo cv thành công")
@@ -161,7 +161,7 @@ public class CreateCV {
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Tạo cv  thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         }
     }
 }

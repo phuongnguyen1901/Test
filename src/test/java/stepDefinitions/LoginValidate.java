@@ -37,7 +37,7 @@ public class LoginValidate {
             register = new RegisterAction();
         }
         if (data == null){
-            data = setup.getDataFromExcelFile(dataExcelPath, MapData.checkDescriptionColoum);
+            data = setup.getDataFromExcelFile(dataExcelPath, MapData.loginColoumn);
         }
         if (driver == null){
             driver = Setup.driver;
@@ -60,7 +60,7 @@ public class LoginValidate {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Login fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Click button Hiển thị mật khẩu và Hiển thị mật khẩu đã nhập")
@@ -72,7 +72,7 @@ public class LoginValidate {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button Hiển thị mật khẩu và Hiển thị mật khẩu đã nhập fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     // login_5
@@ -87,7 +87,7 @@ public class LoginValidate {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Nhập email không tồn tại và nhập password hợp lệ và Click button đăng nhập thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị thông báo lỗi : E-mail hoặc mật khẩu bị sai. Vui lòng đăng nhập lại")
@@ -99,7 +99,7 @@ public class LoginValidate {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị thông báo lỗi : E-mail hoặc mật khẩu bị sai. Vui lòng đăng nhập lại thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -115,7 +115,7 @@ public class LoginValidate {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Nhập email tồn tại và nhập password không hợp lệ và Click button đăng nhập page thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("E-mail hoặc mật khẩu bị sai. Vui lòng đăng nhập lại")
@@ -127,7 +127,7 @@ public class LoginValidate {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị thông báo lỗi : E-mail hoặc mật khẩu bị sai. Vui lòng đăng nhập lại thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 
@@ -143,7 +143,7 @@ public class LoginValidate {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button Quên mật khẩu thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị màn hình quên mật khẩu")
@@ -155,7 +155,7 @@ public class LoginValidate {
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị màn hình quên mật khẩu thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     // login_8
@@ -170,7 +170,7 @@ public class LoginValidate {
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button Đăng kí thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Hiển thị màn hình đăng kí")
@@ -179,10 +179,10 @@ public class LoginValidate {
             assertTrue(register.checkItemInPage(driver));
             Setup.testLogs.log(LogStatus.PASS,"Hiển thị màn hình đăng kí thành công ","");
             Setup.pass++;
-            setup.after(false);
+            setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Hiển thị màn hình đăng kí thất bại",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
 }

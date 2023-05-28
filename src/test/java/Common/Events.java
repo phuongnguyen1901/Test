@@ -180,15 +180,13 @@ public class Events {
         }
         return result;
     }
-    public boolean clickButtonUsingJS(WebDriver driver, By elementFindBy) {
+    public static boolean clickButtonUsingJS(WebDriver driver, By elementFindBy) {
         boolean result = false;
         try {
             WebElement element = driver.findElement(elementFindBy);
-            if (!element.isDisplayed()) {
-                JavascriptExecutor executor = (JavascriptExecutor)driver;
-                executor.executeScript("arguments[0].click();", element);
-                result = true;
-            }
+            JavascriptExecutor executor = (JavascriptExecutor)driver;
+            executor.executeScript("arguments[0].click();", element);
+            result = true;
 
         } catch (Exception e) {
             Constans.errorLog.concat(e.getMessage());

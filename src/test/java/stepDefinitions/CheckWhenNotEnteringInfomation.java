@@ -76,7 +76,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Login fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("At the screen to create a cover letter")
@@ -89,7 +89,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Navigate to cover letter fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     // Cover_letter_3
@@ -103,7 +103,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Do not enter Title and import content fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button Create a cover letter")
@@ -114,7 +114,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button create fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Show error message error title")
@@ -129,7 +129,7 @@ public class CheckWhenNotEnteringInfomation{
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check show message in title is fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -147,7 +147,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Do not enter Title and import content fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button create letter")
@@ -158,7 +158,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button create fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Show error message error content")
@@ -173,7 +173,7 @@ public class CheckWhenNotEnteringInfomation{
             setup.after(true);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check show message in content is fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -191,7 +191,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Do import Title and import content fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @And("Click the button create a cover")
@@ -202,7 +202,7 @@ public class CheckWhenNotEnteringInfomation{
             Setup.pass++;
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Click button create fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(true);
         }
     }
     @Then("Create mail success")
@@ -217,7 +217,7 @@ public class CheckWhenNotEnteringInfomation{
             setup.after(false);
         }catch (AssertionError e){
             Setup.testLogs.log(LogStatus.FAIL,"Check show message create success  is fail",e.getMessage());
-            setup.afterFail();
+            setup.afterFail(false);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

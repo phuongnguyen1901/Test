@@ -133,10 +133,17 @@ public class Setup {
             afterAll();
         }
     }
-    public void afterFail(){
+    public void afterFail(boolean isContinue){
         ExcelFile.setFail(Setup.colPass,Setup.row ,Setup.colFail);
-        afterAll();
-        fail();
+        if (isContinue){
+            Events.captureScreenSelenium(driver);
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            driver.quit();
+        }else {
+            afterAll();
+            fail();
+        }
+
     }
 
     // phần này xử lý cho testng setup

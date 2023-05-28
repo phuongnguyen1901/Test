@@ -141,48 +141,53 @@ public class ExcelFile {
         setCellDataResult(colPass,row,Constans.dataFolder+Constans.fileExcelName,"");
     }
 
-    public static void insertDataToExcelFile(Map<String,Object> data, List<String> coloumnName, String filePath){
+    public static void insertDataToExcelFile(Map<String, Object> data, List<String> coloumnName, String filePath) {
         try {
             String[] excelSetUp = filePath.split(">");
-            String fileExcelName = Constans.dataFolder+excelSetUp[0].trim();
+            String fileExcelNameItem = Constans.dataFolder + excelSetUp[0].trim();
             String sheetName = excelSetUp[1].trim();
             String testCaseName = excelSetUp[2].trim();
-            FileInputStream excelFile = new FileInputStream(fileExcelName);
+            FileInputStream excelFile = new FileInputStream(fileExcelNameItem);
             XSSFWorkbook workBookItem = new XSSFWorkbook(excelFile);
-            XSSFSheet sheet = workBookItem.getSheet(sheetName);
-            int lastRownum = sheet.getLastRowNum();
+            XSSFSheet sheetItem = workBookItem.getSheet(sheetName);
+            int lastRownum = sheetItem.getLastRowNum();
             Integer rowNum = null;
-            for(int i=0;i<=lastRownum;i++){
-                XSSFRow row = sheet.getRow(i);
+            for (int i = lastRownum; i > 0; i--) {
+                XSSFRow row = sheetItem.getRow(i);
                 XSSFCell cellTestcase = row.getCell(1);
-                if (cellTestcase.getStringCellValue().contains(testCaseName)){
+                if (cellTestcase.getStringCellValue().contains(testCaseName)) {
                     rowNum = i;
                     break;
                 }
             }
-            XSSFRow rowTestcase = sheet.getRow(rowNum);
-            for (int i=0;i<coloumnName.size();i++){
-                XSSFCell cell = rowTestcase.getCell(i);
-               Object dataWithColoumn = data.get(coloumnName.get(i));
-                if (!Objects.isNull(dataWithColoumn)){
-                    cell.setCellValue(dataWithColoumn.toString());
+            XSSFRow rowTestcase = sheetItem.getRow(rowNum);
+            for (int i = 0; i < coloumnName.size(); i++) {
+                XSSFCell cellItem = rowTestcase.getCell(i);
+                Object dataWithColoumn = data.get(coloumnName.get(i));
+                if (!Objects.isNull(dataWithColoumn)) {
+                    if (cellItem == null) {
+                        cellItem = rowTestcase.createCell(i);
+                        cellItem.setCellValue(dataWithColoumn.toString());
+                    } else {
+                        cellItem.setCellValue(dataWithColoumn.toString());
+                    }
                 }
             }
-            FileOutputStream fileOutputStream = new FileOutputStream(fileExcelName);
-            workBookItem.write(fileOutputStream);
-            fileOutputStream.flush();
-            fileOutputStream.close();
-        }catch (Exception e){
+            FileOutputStream fileOutputStreamItem = new FileOutputStream(fileExcelNameItem);
+            workBookItem.write(fileOutputStreamItem);
+            fileOutputStreamItem.flush();
+            fileOutputStreamItem.close();
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        String filePath = "LoginTest.xlsx>data>login";
-        Map<String,Object> data = new HashMap<>();
-        data.put("Username","datatest");
-        data.put("Password","passwordTest");
-        insertDataToExcelFile(data,MapData.loginColoumn,filePath);
+        String filePath = "SaveJob.xlsx>data>Save_Job";
+        Map<String, Object> data = new HashMap<>();
+        data.put("TitleJob", "datatest");
+        insertDataToExcelFile(data, MapData.saveJobColoumn, filePath);
     }
 }
